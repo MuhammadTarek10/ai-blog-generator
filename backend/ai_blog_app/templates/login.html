@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css"
+      rel="stylesheet" />
+  </head>
+  <body class="bg-gray-100 font-sans antialiased">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 p-4 text-white flex justify-between">
+      <div>
+        <h1 class="text-3xl font-bold">AI Blog Generator</h1>
+      </div>
+      <div>
+        <a href="signup" class="hover:underline">Signup</a>
+      </div>
+    </nav>
+    <div class="flex items-center justify-center h-screen">
+      <div class="bg-white p-8 shadow-md rounded-lg max-w-md w-full">
+        <!-- Login form -->
+        <form class="space-y-4">
+          <h1 class="text-xl font-semibold">Login</h1>
+          <div>
+            <label for="username" class="block mb-1 font-medium"
+              >Username</label
+            >
+            <input
+              id="username"
+              type="text"
+              placeholder="Enter your username..."
+              class="border rounded w-full p-2" />
+          </div>
+          <div>
+            <label for="password" class="block mb-1 font-medium"
+              >Password</label
+            >
+            <input
+              id="password"
+              type="password"
+              placeholder="Enter your password..."
+              class="border rounded w-full p-2" />
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-blue-600 rounded p-2 hover:bg-blue-700 transition-colors text-white text-2xl">
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

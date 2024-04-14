@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ai Blog</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css"
+      rel="stylesheet" />
+    <style>
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @-webkit-keyframes rotate {
+        from {
+          -webkit-transform: rotate(0deg);
+        }
+        to {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+
+      .load {
+        width: 100px;
+        height: 100px;
+        margin: 110px auto 0;
+        border: solid 10px #8822aa;
+        border-radius: 50%;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        -webkit-transition: all 0.5s ease-in;
+        -webkit-animation-name: rotate;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+
+        transition: all 0.5s ease-in;
+        animation-name: rotate;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 font-sans antialiased">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 p-4 text-white flex justify-between">
+      <div>
+        <h1 class="text-3xl font-bold">AI Blog Generator</h1>
+      </div>
+      <div>
+        <a href="#" class="hover:underline">Logout</a>
+      </div>
+    </nav>
+    <!-- Main -->
+    <div class="flex-grow container mx-auto mt-20 px-4 sm:px-0">
+      <div
+        class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md transition-transform transform flex flex-col hover:scale-105">
+        <!-- Introduction Section -->
+        <div class="text-center">
+          <h2 class="text-2xl font-semibold mb-4">AI Blog Generator</h2>
+          <p class="text-gray-700">Convert Youtube Videos to Blogs</p>
+        </div>
+        <br />
+
+        <!-- Youtube Section -->
+        <div>
+          <h2 class="text-xl mb-4 font-semibold">Enter Youtube Link</h2>
+          <div class="flex space-x-4">
+            <input
+              id="youtube-link"
+              type="url"
+              placeholder="Paste Youtube Link..."
+              class="flex-grow p-4 border border-blue-400 rounded-l-md" />
+            <button
+              id="generate-button"
+              class="bg-blue-400 px-4 py-2 text-white rounded-r-md hover:bg-blue-700 transition-colors">
+              Generate
+            </button>
+          </div>
+        </div>
+        <div style="display: none" id="loading-circle" class="load">
+          <!-- Section for loading circle -->
+        </div>
+        <section class="mt-10 flex-grow">
+          <h2 class="text-xl mb-4 font-semibold">Generated Blog</h2>
+          <div id="blog-content" class="mt-2 text-gray-700"></div>
+        </section>
+      </div>
+    </div>
+    <footer class="text-center mt-6 text-black p-4">
+      Muhammad Tarek Following Tomi
+    </footer>
+  </body>
+</html>

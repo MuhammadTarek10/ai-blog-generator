@@ -55,7 +55,13 @@
         <h1 class="text-3xl font-bold">AI Blog Generator</h1>
       </div>
       <div>
-        <a href="#" class="hover:underline">Logout</a>
+        <a href="#" class="text-white hover:underline mx-4"
+          >Welcome {{ user.username }}</a
+        >
+        <a href="/blog-list" class="text-white hover:underline mx-4"
+          >Saved Blog Posts</a
+        >
+        <a href="#" class="text-white hover:underline">Logout</a>
       </div>
     </nav>
     <!-- Main -->
@@ -79,7 +85,7 @@
               placeholder="Paste Youtube Link..."
               class="flex-grow p-4 border border-blue-400 rounded-l-md" />
             <button
-              id="generate-button"
+              id="generate-blog-button"
               class="bg-blue-400 px-4 py-2 text-white rounded-r-md hover:bg-blue-700 transition-colors">
               Generate
             </button>
@@ -97,5 +103,42 @@
     <footer class="text-center mt-6 text-black p-4">
       Muhammad Tarek Following Tomi
     </footer>
+
+    <script>
+      document
+        .getElementById("generate-blog-button")
+        .addEventListener("click", async () => {
+          const youtubeLink = document.getElementById("youtube-link").value;
+          const blogContent = document.getElementById("blog-content");
+
+          if (youtubeLink) {
+            document.getElementById("loading-circle").style.display = "block";
+
+            blogContent.innerHTML = ""; // Clear previous content
+
+            const endpointUrl = "/generate-blog";
+
+            try {
+              const response = await fetch(endpointUrl, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ link: youtubeLink }),
+              });
+
+              const data = await response.json();
+
+              blogContent.innerHTML = data.content;
+            } catch (error) {
+              console.error("Error occurred:", error);
+              alert("Something went wrong. Please try again later.");
+            }
+            document.getElementById("loading-circle").style.display = "none";
+          } else {
+            alert("Please enter a YouTube link.");
+          }
+        });
+    </script>
   </body>
 </html>
